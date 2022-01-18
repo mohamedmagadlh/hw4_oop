@@ -52,7 +52,7 @@ void freeList(pcopy list) {
 }
 
 pcopy listMin(pcopy list) {
-    int min = infinity;
+    int min = 20000000;
     pcopy key = NULL;
 //    list = list->next;
     while (list != NULL) {
@@ -94,7 +94,7 @@ int shortsPath_cmd(pnode *head, int src, int dest) {
     dijkstra(l);
     pcopy xNode = getPCopyNode(l, dest);
     int dis = xNode->weight;
-    if (dis == infinity) {
+    if (dis ==20000000) {
         return -1;
     }
     freeList(l);
@@ -119,7 +119,7 @@ int TSP_cmd(pnode *head) {
     int listSize;
     scanf("%d", &listSize);
     int *node_lst = newArr(listSize);
-    int finalDis = infinity;
+    int finalDis = 20000000;
     int bool = 0;
 
     for (int i = 1; i <= listSize; ++i) { 
@@ -128,7 +128,7 @@ int TSP_cmd(pnode *head) {
             int path = 0;
             int bool2 = 1;
             for (int k = 0; k < listSize - 1; ++k) {
-                int dist = shortsPath_cmd(head,*(node_lst+k),*(node_lst+(k+1)));
+                int dist = shortsPath_cmd(head,(node_lst+k),(node_lst+(k+1)));
                 if (dist == -1) {
                     bool2 = 0;
                     break;
